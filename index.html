@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting…</title>
+    <title>Redirect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <noscript>Not supported.</noscript>
     <script>
       (function () {
         const params = new URLSearchParams(window.location.search);
         const to = params.get("to");
-
-        if (to && /^https?:\/\//.test(to)) {
-          window.location.href = to;
+        if (to && /^https?:\/\/[^ ]+$/.test(to)) {
+          document.addEventListener("DOMContentLoaded", () => {
+            document.body.textContent = "Redirecting…";
+            window.location.href = to;
+          });
         } else {
-          document.body.textContent = "Not supported.";
+          document.addEventListener("DOMContentLoaded", () => {
+            document.body.textContent = "Not supported.";
+          });
         }
       })();
     </script>
