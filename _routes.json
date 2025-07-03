@@ -1,7 +1,12 @@
 {
+  "version": 1,
   "include": [
-    "/.*",
-    "/.well-known/apple-app-site-association"
+    "/.well-known/apple-app-site-association",
+    "/*"
   ],
-  "exclude": []
+  "exclude": [],
+  "fallback": {
+    "dest": "/index.html",
+    "status": 200
+  }
 }
